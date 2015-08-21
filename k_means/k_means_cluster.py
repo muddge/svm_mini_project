@@ -82,7 +82,24 @@ try:
 except NameError:
     print "no predictions object named pred found, no clusters to plot"
 
+# Make list of keys of data_dict, and initialize two lists for stock options and salary
 
+k = data_dict.keys()
+k = list(k)
+List = list(range(0, len(k)))
+List_sal = list(range(0, len(k)))
+
+# Display list of stock options to find min and max
+
+for i in range(len(k)):
+    List[i] = data_dict[k[i]]['exercised_stock_options']
+print sorted(List)
+
+# Display list of salaries to find min and max
+
+for i in range(len(k)):
+    List_sal[i] = data_dict[k[i]]['salary']
+print sorted(List_sal)
 
 
 
