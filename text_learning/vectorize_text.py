@@ -44,6 +44,7 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
         if temp_counter < 200:
             #path = os.path.join('..', path[:-1])
             path = os.path.join('..', path[:-1])
+            # I had to use this try/except section because iPython on my computer was not opening all of the emails correctly
             try:
                 email = open(path, "r")
                 print path
