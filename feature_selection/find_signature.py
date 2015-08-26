@@ -36,6 +36,23 @@ labels_train   = labels_train[:150]
 
 
 ### your code goes here
+from sklearn import tree
+clf = tree.DecisionTreeClassifier(min_samples_split=40)
+clf = clf.fit(features_train, labels_train)
+pred = clf.predict(features_test)
+
+from sklearn.metrics import accuracy_score
+acc = accuracy_score(pred, labels_test)
+print("accuracy:", acc)
+print("no. of features:", len(features_train[0]))
+
+# For finding index and percentage of highest ranked feature importance
+m = max(clf.feature_importances_)
+print m, [i for i, j in enumerate(clf.feature_importances_) if j == m]
 
 
+# Finds label for highest ranked feature
+print vectorizer.get_feature_names()[21323]
 
+# Print 10 highest ranked features
+print sorted(clf.feature_importances_)[-10:]
